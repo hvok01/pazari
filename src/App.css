@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&display=swap');
+
+/* font-family: 'Poppins', sans-serif;
+font-family: 'Work Sans', sans-serif; */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header .logo-container {
+  margin: 40px;
+}
+
+.header .logo-container .logo-icon {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #000;
+}
+
+.header .nav-container {
+  margin: 0;
+}
+
+.header .nav-container .hamburger-container {
+  margin: 0 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px 10px 0 0;
+}
+
+.header .nav-container .hamburger-container div {
+  width: 35px;
+  height: 2px;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+.header .nav-container .hamburger-container .hamburger-two {
+  margin-top: 8px;
+}
+
+.header .nav-container .nav-links-container {
+  margin: 0;
+  display: none;
+}
+
+.main-content-grid {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+.main-content-grid .content-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 85vw;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.main-content-grid .content-item p {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #000;
+  cursor: pointer;
+  background-color: #ffffff1a;
+}
+
+.main-content-grid .content-item img {
+  height: 80vh;
+  object-fit: cover;
+}
+
+.main-content-grid .content-item p, .main-content-grid .content-item img {
+  width: 100%;
+}
+
+footer {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+footer a {
+  padding: 20px;
+  margin: 4rem 0px;
+  margin-bottom: 6rem;
+  font-family: 'Work Sans', sans-serif;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: .9rem;
+  color: #000;
+  cursor: pointer;
+  background-color: #ffffff1a;
+}
+
+@media screen and (min-width: 767px) {
+
+  .header .nav-container .hamburger-container {
+    display: none;
+  }
+
+  .header .nav-container .nav-links-container {
+    margin: 0;
+    display: flex;
+  }
+
+  .header .nav-container .nav-links-container ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .header .nav-container .nav-links-container ul li {
+    padding: 0px 10px;
+  }
+
+  .header .nav-container .nav-links-container ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    padding: 0;
+  }
+
+  .header .nav-container .nav-links-container ul li:first-of-type {
+    border-bottom: 1px solid #000;
+  }
+
+  .header .nav-container .nav-links-container ul li:last-child {
+    margin-right: 40px;
+  }
+
+  .main-content-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-column-gap: 80px;
+    grid-row-gap: 75px;
+    margin: 40px;
+  }
+
+  .main-content-grid .content-item {
+    width: inherit;
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .main-content-grid .content-item img {
+    height: inherit;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+
+  .header {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .main-content-grid {
+    max-width: 1260px;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+}
+
+@keyframes fadeHover {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOnOut {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.main-content-grid .content-item p:hover {
+  animation-name: fadeHover;
+  animation-duration: 0.2s;
+  opacity: 0;
+}
+
+.main-content-grid .content-item p {
+  animation-name: fadeOnOut;
+  animation-duration: 0.2s;
+}
