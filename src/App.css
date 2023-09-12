@@ -29,6 +29,8 @@ html, body {
   font-weight: 700;
   font-size: 1.6rem;
   color: #000;
+  position: relative;
+  z-index: 3;
 }
 
 .header .nav-container {
@@ -41,6 +43,8 @@ html, body {
   flex-direction: column;
   cursor: pointer;
   padding: 5px 10px 0 0;
+  position: relative;
+  z-index: 3;
 }
 
 .header .nav-container .hamburger-container div {
@@ -56,7 +60,42 @@ html, body {
 
 .header .nav-container .nav-links-container {
   margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFF;
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.header .nav-container .nav-links-container ul {
+  list-style: none;
+}
+
+.header .nav-container .nav-links-container ul li {
+  padding: 20px 0px;
+  text-align: center;
+}
+
+.header .nav-container .nav-links-container ul li a {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+  font-size: 3rem;
+}
+
+.header .nav-container .nav-links-container ul li a:hover {
+  border-bottom: 2px solid #000;
+}
+
+.header .nav-container .active {
+  display: flex;
 }
 
 .main-content-grid {
@@ -133,6 +172,9 @@ footer a {
   .header .nav-container .nav-links-container {
     margin: 0;
     display: flex;
+    position: static;
+    width: auto;
+    height: auto;
   }
 
   .header .nav-container .nav-links-container ul {
