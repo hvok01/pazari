@@ -43,14 +43,10 @@ function App() {
       width: "30px",
       height: "1px",
       opacity: 1,
-    }, "<").fromTo(navLinkOne.current, {
-      opacity: 0,
-    }, {
+    }, "<").to(navLinkOne.current, {
       opacity: 1,
       y: "-5px"
-    }).fromTo(navLinkTwo.current, {
-      opacity: 0,
-    }, {
+    }).to(navLinkTwo.current, {
       opacity: 1,
       y: "-5px",
       delay: -0.2,
