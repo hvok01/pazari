@@ -11,24 +11,20 @@ function App() {
   //https://pazari-fluid-demo.squarespace.com/
   const hamburgerLineOne = useRef(null);
   const hamburgerLineTwo = useRef(null);
-  const navLinkOne = useRef(null);
-  const navLinkTwo = useRef(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-
-      const tl = gsap.timeline({paused: true});
-
+      const tl = gsap.timeline({paused: false});
+      actualAnimation(tl)
       setTimeline(tl);
-
-      actualAnimation(tl);
-
     });
     return () => ctx.revert();
   }, []);
 
   const actualAnimation = (timeline : gsap.core.Timeline | undefined) => {
+    
+    // const isMobile = window.innerWidth < 767 ? true : false;
     timeline?.to(hamburgerLineOne.current, {
       rotate: "-225",
       y: "+5",
@@ -43,43 +39,23 @@ function App() {
       width: "30px",
       height: "1px",
       opacity: 1,
-    }, "<").to(navLinkOne.current, {
-      opacity: 1,
-      y: "-5px"
-    }).to(navLinkTwo.current, {
-      opacity: 1,
-      y: "-5px",
-      delay: -0.2,
-    })
+    }, "<").reverse();
   }
 
   const onNavBarClick = () => {
     const navlinks: any = document.getElementById("navlinks");
+    const navlinkOne: any = document.getElementById("navlinkOne");
+    const navlinkTwo: any = document.getElementById("navlinkTwo");
 
-    if(!timeline?.isActive()) {
+    navlinks.classList.toggle("active");
 
-      const ctx = gsap.context(() => {
-        
-        if(timeline?.reversed()) {
+    timeline?.reversed() ? timeline?.play() : timeline?.reverse();
 
-          timeline?.play();
-
-          navlinks.classList.add("active");
-
-        } else {
-
-          timeline?.reverse();
-
-          navlinks.classList.remove("active");
-
-        }
-      });
-
-      return () => ctx.revert();
-
-    } else {
-      return false;
-    }
+    setTimeout(function() {
+      navlinkOne.classList.toggle("fade");
+      navlinkTwo.classList.toggle("fade");
+    },300)
+    
   }
 
   return (
@@ -97,8 +73,8 @@ function App() {
           </div>
           <div className="nav-links-container" id="navlinks">
             <ul>
-              <li ref={navLinkOne}><a href="#">Work</a></li>
-              <li ref={navLinkTwo}><a href="#">Contact</a></li>
+              <li id="navlinkOne"><a href="#">Work</a></li>
+              <li id="navlinkTwo"><a href="#">Contact</a></li>
             </ul>
           </div>
         </div>

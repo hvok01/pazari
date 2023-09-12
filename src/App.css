@@ -80,6 +80,8 @@ html, body {
 .header .nav-container .nav-links-container ul li {
   padding: 20px 0px;
   text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
 .header .nav-container .nav-links-container ul li a {
@@ -264,4 +266,8 @@ footer a {
 .main-content-grid .content-item p {
   animation-name: fadeOnOut;
   animation-duration: 0.2s;
+}
+
+.header .nav-container .nav-links-container ul .fade {
+  opacity: 1;
 }
