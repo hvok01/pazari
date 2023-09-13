@@ -75,6 +75,7 @@ html, body {
 
 .header .nav-container .nav-links-container ul {
   list-style: none;
+  padding: 0;
 }
 
 .header .nav-container .nav-links-container ul li {
@@ -197,6 +198,10 @@ footer a {
     font-family: 'Work Sans', sans-serif;
     font-weight: 500;
     padding: 0;
+  }
+
+  .header .nav-container .nav-links-container ul li a:hover {
+    border: none;
   }
 
   .header .nav-container .nav-links-container ul li:first-of-type {
